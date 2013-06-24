@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AdCourierAPI>
+<Method>AdvertCheck</Method>
+<APIKey>123456789</APIKey>
+<Account>
+  <UserName>My Username</UserName>
+  <Password>My Password</Password>
+</Account>
+<Options>
+  <Filter>
+    <JobReference>123</JobReference>
+  </Filter>
+</Options>
+</AdCourierAPI>

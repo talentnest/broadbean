@@ -1,0 +1,87 @@
+{
+   "command_parameters": {
+        "account": {
+            "user_name": "User1",
+            "password": "Password123"
+        },
+        "config": {
+            "options": {
+                "style_sheet": "sheet.css",
+                "display_menu": true,
+                "force_step_1": true,
+                "notify_on_delivery": true,
+                "redirect_on_completion": true,
+                "return_store_url": "https://teststore.com",
+                "automate": true
+            }
+        },
+        "advert": {
+            "job_title": "Tester",
+            "job_reference": "Job ref",
+            "job_type": "test job",
+            "location_id": 12345,
+            "industry": "IT",
+            "salary_from": 20000,
+            "salary_to": 35000,
+            "salary_currency": "CAD",
+            "salary_per": "year",
+            "salary_benefits": "company car",
+            "skills": "multitasking",
+            "summary": "Multitasking tester",
+            "client_details": "Software company",
+            "job_description": "Testing new software",
+            "profile": "Profile",
+            "job_offer": "Job offer",
+            "vac_extensions": [
+                { "name": "vac_extension_1", "value": "v_ext_1" },
+                { "name": "vac_extension_2", "value": "v_ext_2" }
+            ],
+            "extensions": [
+                { "name": "extension_1", "value": "ext_1" },
+                { "name": "extension_2", "value": "ext_2" }
+            ],
+            "custom_fields": [
+                { "name": "custom_1", "value": "cust_1" },
+                { "name": "custom_2", "value": "cust_2" }
+            ]
+        },
+        "contact": {
+            "contact_name": "John Doe",
+            "contact_email": "jdoe@test.com",
+            "contact_telephone": "416-555-1234",
+            "contact_address": "123 Address Street",
+            "contact_company": "Hiring Inc."
+        },
+        "channel_list": [
+            {
+                "channel_id": 1,
+                "custom_fields": [
+                    { "name": "ChannelNickname", "value": "TN" },
+                    { "name": "ChannelRank", "value": 12 }
+                ],
+                "extensions": [
+                    { "name": "ExtensionOne", "value": "ext_one" },
+                    { "name": "ExtensionTwo", "value": "ext_two" }
+                ]
+            },
+            {
+                "channel_id": 2,
+                "custom_fields": [
+                    { "name": "ChannelNickname", "value": "SMG" },
+                    { "name": "ChannelRank", "value": 21 }
+                ],
+                "extensions": [
+                    { "name": "ExtensionOne", "value": "ext_one" },
+                    { "name": "ExtensionTwo", "value": "ext_two" }
+                ]
+            }
+        ],
+        "data_manipulation": {
+            "do": {
+                "field": "TestField",
+                "simple_op": "AddText",
+                "value": "abc"
+            }
+        }
+    }
+}

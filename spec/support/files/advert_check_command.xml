@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPI>
+  <Method>AdvertCheck</Method>
+  <APIKey>123456789</APIKey>
+  <Account>
+    <UserName>User1</UserName>
+    <Password>Password123</Password>
+  </Account>
+  <Options>
+    <Filter>
+      <AdvertId>123</AdvertId>
+      <JobReference>Job ref</JobReference>
+      <Times>
+        <TimeFrom>2009-01-23T06:15:00Z</TimeFrom>
+        <TimeTo>2009-02-23T06:15:00Z</TimeTo>
+      </Times>
+      <CustomField name="custom_1">cust_1</CustomField>
+      <CustomField name="custom_2">cust_2</CustomField>
+      <Limit>1</Limit>
+    </Filter>
+    <AllDescFields>true</AllDescFields>
+    <VacExtensions>true</VacExtensions>
+  </Options>
+</AdCourierAPI>

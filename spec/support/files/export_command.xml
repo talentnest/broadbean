@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPI>
+  <Method>Export</Method>
+  <APIKey>123456789</APIKey>
+  <Account>
+    <UserName>User1</UserName>
+    <Password>Password123</Password>
+  </Account>
+  <Config>
+    <Options>
+      <StyleSheet>sheet.css</StyleSheet>
+      <DisplayMenu>true</DisplayMenu>
+      <ForceStep1>true</ForceStep1>
+      <NotifyOnDelivery>true</NotifyOnDelivery>
+      <RedirectOnCompletion>true</RedirectOnCompletion>
+      <ReturnStoreURL>https://teststore.com</ReturnStoreURL>
+      <Automate>true</Automate>
+    </Options>
+  </Config>
+  <Advert>
+    <JobTitle>Tester</JobTitle>
+    <JobReference>Job ref</JobReference>
+    <JobType>test job</JobType>
+    <LocationId>12345</LocationId>
+    <Industry>IT</Industry>
+    <SalaryFrom>20000</SalaryFrom>
+    <SalaryTo>35000</SalaryTo>
+    <SalaryCurrency>CAD</SalaryCurrency>
+    <SalaryPer>year</SalaryPer>
+    <SalaryBenefits>company car</SalaryBenefits>
+    <Skills>multitasking</Skills>
+    <Summary>Multitasking tester</Summary>
+    <ClientDetails>Software company</ClientDetails>
+    <JobDescription>Testing new software</JobDescription>
+    <Profile>Profile</Profile>
+    <JobOffer>Job offer</JobOffer>
+    <VacExtension name="vac_extension_1">v_ext_1</VacExtension>
+    <VacExtension name="vac_extension_2">v_ext_2</VacExtension>
+    <Extension name="extension_1">ext_1</Extension>
+    <Extension name="extension_2">ext_2</Extension>
+    <CustomField name="custom_1">cust_1</CustomField>
+    <CustomField name="custom_2">cust_2</CustomField>
+  </Advert>
+  <Contact>
+    <ContactName>John Doe</ContactName>
+    <ContactEmail>jdoe@test.com</ContactEmail>
+    <ContactTelephone>416-555-1234</ContactTelephone>
+    <ContactAddress>123 Address Street</ContactAddress>
+    <ContactCompany>Hiring Inc.</ContactCompany>
+  </Contact>
+  <ChannelList>
+    <Channel>
+      <ChannelId>1</ChannelId>
+      <CustomField name="ChannelNickname">TN</CustomField>
+      <CustomField name="ChannelRank">12</CustomField>
+      <Extension name="ExtensionOne">ext_one</Extension>
+      <Extension name="ExtensionTwo">ext_two</Extension>
+    </Channel>
+    <Channel>
+      <ChannelId>2</ChannelId>
+      <CustomField name="ChannelNickname">SMG</CustomField>
+      <CustomField name="ChannelRank">21</CustomField>
+      <Extension name="ExtensionOne">ext_one</Extension>
+      <Extension name="ExtensionTwo">ext_two</Extension>
+    </Channel>
+  </ChannelList>
+  <DataManipulation>
+    <Do>
+      <Field>TestField</Field>
+      <SimpleOp>AddText</SimpleOp>
+      <Value>abc</Value>
+    </Do>
+  </DataManipulation>
+</AdCourierAPI>

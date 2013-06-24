@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPI>
+  <Method>Delete</Method>
+  <APIKey>123456789</APIKey>
+  <Account>
+    <UserName>User1</UserName>
+    <Password>Password123</Password>
+  </Account>
+  <Options>
+    <Filter>
+      <JobReference>Job ref</JobReference>
+      <Times>
+        <TimeFrom>2009-01-23T06:15:00Z</TimeFrom>
+      </Times>
+      <Id>123</Id>
+      <CustomField name="JobId">321</CustomField>
+      <CustomField name="SomeOtherId">456</CustomField>
+      <Limit>1</Limit>
+    </Filter>
+    <ChannelList>
+      <Channel>
+        <ChannelId>1</ChannelId>
+      </Channel>
+      <Channel>
+        <ChannelId>2</ChannelId>
+      </Channel>
+    </ChannelList>
+  </Options>
+</AdCourierAPI>

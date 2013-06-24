@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AdCourierAPIResponse>
+  <TimeNow>2009-01-23T16:45:00Z</TimeNow>
+  <ResponseId>slipstream-01-23-1232729100-12345</ResponseId>
+  <Failed>
+    <Message>Command failed</Message>
+  </Failed>
+</AdCourierAPIResponse>

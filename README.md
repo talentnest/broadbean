@@ -1,6 +1,5 @@
 # Broadbean
-
-TODO: Write a gem description
+Communicate to Broadbean's AdCourier service by sending commands and parsing responses.
 
 ## Installation
 

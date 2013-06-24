@@ -1,0 +1,25 @@
+{
+    "command_parameters": {
+        "account": {
+            "user_name": "User1",
+            "password": "Password123"
+        },
+        "options": {
+            "filter": {
+                "advert_id": "123",
+                "job_reference": "Job ref",
+                "times": {
+                    "time_from": "2009-01-23T06:15:00Z",
+                    "time_to": "2009-02-23T06:15:00Z"
+                },
+                "custom_fields": [
+                    { "name": "custom_1", "value": "cust_1" },
+                    { "name": "custom_2", "value": "cust_2" }
+                ],
+                "limit": 1
+            },
+            "all_desc_fields": true,
+            "vac_extensions": true
+        }
+    }
+}
