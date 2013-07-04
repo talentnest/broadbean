@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AdCourierAPIResponse>
+  <TimeNow>2009-01-28T09:35:48Z</TimeNow>
+  <ResponseId>slipstream-01-28-1233135348-12345</ResponseId>
+  <DeleteResponse> <!-- one or more may be returned -->
+    <Advert>
+      <Id>14710</Id>
+      <CreateTime>2009-01-23T16:45:11Z</CreateTime>
+      <Consultant>user</Consultant>
+      <Team>team</Team>
+      <Office>office</Office>
+      <UserName>John.Doe@hybridtest.com</UserName>
+      <JobTitle>Disbursements Manager</JobTitle>
+      <JobReference>job_ref</JobReference>
+      <JobType>Permanent</JobType>
+    </Advert>
+    <ChannelList>
+      <Channel> <!-- one or more may be returned -->
+        <ChannelId>monsterxml</ChannelId>
+        <ChannelName>Monster XML</ChannelName>
+        <ChannelStatus PostedTime="2009-01-23T16:46:24Z" RemovalTime="2009-01-28T09:35:52Z" ReturnCode="5" ReturnCodeClass="Success">Deleted</ChannelStatus>
+      </Channel>
+      <Channel>
+        <ChannelId>reed</ChannelId>
+        <ChannelName>Reed</ChannelName>
+        <ChannelStatus PostedTime="2009-01-23T16:46:24Z" RemovalTime="2009-01-30T16:46:24Z" ReturnCode="10" ReturnCodeClass="Failed">Unsupported - board is not valid any longer.</ChannelStatus>
+      </Channel>
+    </ChannelList>
+  </DeleteResponse>
+  <DeleteResponse>
+    <Advert>
+      <Id>14711</Id>
+      <CreateTime>2009-02-23T16:45:11Z</CreateTime>
+      <Consultant>user</Consultant>
+      <Team>team</Team>
+      <Office>office</Office>
+      <UserName>John.Doe@hybridtest.com</UserName>
+      <JobTitle>Disbursements Chief</JobTitle>
+      <JobReference>job_ref</JobReference>
+      <JobType>Permanent</JobType>
+    </Advert>
+    <ChannelList>
+      <Channel>
+        <ChannelId>monsterxml</ChannelId>
+        <ChannelName>Monster XML</ChannelName>
+        <ChannelStatus PostedTime="2009-02-23T16:46:24Z" RemovalTime="2009-02-28T09:35:52Z" ReturnCode="5" ReturnCodeClass="Success">Deleted</ChannelStatus>
+      </Channel>
+      <Channel>
+        <ChannelId>reed</ChannelId>
+        <ChannelName>Reed</ChannelName>
+        <ChannelStatus PostedTime="2009-02-23T16:46:24Z" RemovalTime="2009-02-30T16:46:24Z" ReturnCode="10" ReturnCodeClass="Failed">Unsupported - board is not valid any longer.</ChannelStatus>
+      </Channel>
+    </ChannelList>
+  </DeleteResponse>
+</AdCourierAPIResponse>

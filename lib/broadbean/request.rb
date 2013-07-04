@@ -7,20 +7,20 @@ module Broadbean
     end
 
     def send_out
-      http_response = http_request_transmission
+      perform_http_request
     end
 
   private
 
     attr_reader :message
 
-    def http_request_transmission
-      Net::HTTP.start(Broadbean::URL.host, Broadbean::URL.port, use_ssl: true) { |http| http.request new_http_request }
+    def perform_http_request
+      Net::HTTP.start(URL.host, URL.port, use_ssl: true) { |http| http.request new_http_request }
     end
 
     def new_http_request
-      request = Net::HTTP::Post.new(Broadbean::URL.path)
-      request.content_type = Broadbean::CONTENT_TYPE
+      request = Net::HTTP::Post.new(URL.path)
+      request.content_type = CONTENT_TYPE
       request.body = message
       request
     end

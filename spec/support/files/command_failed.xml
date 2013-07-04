@@ -3,6 +3,6 @@
   <TimeNow>2009-01-23T16:45:00Z</TimeNow>
   <ResponseId>slipstream-01-23-1232729100-12345</ResponseId>
   <Failed>
-    <Message>Command failed</Message>
+    <Message>Sorry command failed because of XYZ</Message>
   </Failed>
 </AdCourierAPIResponse>

@@ -2,34 +2,53 @@ require 'spec_helper'
 
 describe Broadbean::Command do
 
-  let(:command) { File.read('spec/support/files/message1.xml') }
-
-  subject { Broadbean::Command.new(command) }
-
   describe "#new" do
-    it "should create a new Request with the given XML command" do
-      Broadbean::Request.should_receive(:new).with(command)
-      subject
+    let(:xml_doc) { File.read('spec/support/files/command.xml') }
+
+    it "should create a Command XML doc" do
+      subject.instance_variable_get(:@command_builder).to_xml.should == xml_doc
+    end
+  end
+
+  describe "#authenticate" do
+    let(:api_key)  { "654321" }
+    let(:username) { "JDoe" }
+    let(:password) { "pass123" }
+
+    it "should set Broadbean credentials for the command" do
+      subject.authenticate(api_key, username, password)
+
+      xml = subject.instance_variable_get(:@command_builder).doc
+
+      xml.at_css('APIKey').content.should   == api_key
+      xml.at_css('UserName').content.should == username
+      xml.at_css('Password').content.should == password
     end
   end
 
   describe "#execute" do
-    let(:http_response) { double('Net::HTTPSuccess') }
-    let(:request) { double('Broadbean::Request', send_out: http_response) }
+    let(:request) { double('Broadbean::Request', send_out: 'http_response') }
     let(:response) { double('Broadbean::Response', message: 'Success') }
 
     before do
       Broadbean::Request.stub(:new) { request }
-      Broadbean::Response.stub(:new).with(http_response) { response }
+      Broadbean::Response.stub(:new) { response }
     end
 
-    it "should send out a command request" do
+    it "should create a new Request" do
+      command_builder = subject.instance_variable_get(:@command_builder)
+
+      Broadbean::Request.should_receive(:new).with(command_builder.to_xml)
+      subject.execute
+    end
+
+    it "should send out the Request" do
       request.should_receive(:send_out)
       subject.execute
     end
 
-    it "should create a new Response" do
-      Broadbean::Response.should_receive(:new).with(http_response)
+    it "should create a Response" do
+      Broadbean::Response.should_receive(:new).with('', request.send_out)
       subject.execute
     end
   end

@@ -1,19 +1,28 @@
 require 'json'
 require 'nokogiri'
-require 'active_support/core_ext/string'
 
 module Broadbean
-  class Command
+  autoload :ExportCommand,      'broadbean/commands/export_command'
+  autoload :AdvertCheckCommand, 'broadbean/commands/advert_check_command'
+  autoload :DeleteCommand,      'broadbean/commands/delete_command'
 
-    def initialize(command_xml)
-      @command  = command_xml
-      @request  = Broadbean::Request.new(@command)
+  class Command
+    def initialize(command_specific_xml=nil)
+      @command_builder = merge_common_xml_with(command_specific_xml)
+      @request  = nil
       @response = nil
     end
 
+    def authenticate(api_key, username, password)
+      doc = command_builder.doc
+      doc.at_css('APIKey').content   = api_key
+      doc.at_css('UserName').content = username
+      doc.at_css('Password').content = password
+    end
+
     def execute
-      http_response = request.send_out
-      @response = Broadbean::Response.new(http_response)
+      @request  = Request.new(command_builder.to_xml)
+      @response = Response.new(method_name, request.send_out)
     end
 
     def failed?
@@ -28,47 +37,72 @@ module Broadbean
 
   private
 
-    attr_reader :request, :response
+    attr_reader :command_builder, :request, :response
 
     def executed?
       !response.nil?
     end
 
-    def to_hash(json_string)
-      JSON.parse(json_string, symbolize_names: true)
+    def method_name
+      self.class.name.demodulize.gsub(/Command\Z/, '')
     end
 
-    def add_single_xml_elements(xml, tags, values)
-      tags.each { |tag| create_single_xml_element(xml, tag, values) }
+    def build_common_xml
+      xml_builder { |xml| add_common_elements_to(xml) }
     end
 
-    def create_single_xml_element(xml, tag, values)
-      element = tag.camelize
-      value   = values[tag.to_sym]
-
-      xml.send(element, value) if value
+    def xml_builder
+      Nokogiri::XML::Builder.new(encoding: ENCODING) { |xml| yield(xml) }
     end
 
-    def add_multiple_xml_elements(xml, tags, element_sets)
-      if tags
-        tags.each { |tag| create_multiple_xml_element(xml, tag, element_sets) }
+    def add_common_elements_to(xml)
+      xml.AdCourierAPI do
+        xml.Method method_name
+        xml.APIKey
+        xml.Account do
+          xml.UserName
+          xml.Password
+        end
       end
     end
 
-    def create_multiple_xml_element(xml, tag, element_sets)
-      element_tag = tag.singularize.camelize
-      elements = element_sets[tag.to_sym]
+    def merge_common_xml_with(command_specific_xml)
+      full_xml = build_common_xml
+      merge(full_xml, command_specific_xml) if command_specific_xml
+      full_xml
+    end
 
-      if elements
-        elements.each { |e| xml.send(element_tag, e[:value], name: e[:name]) }
+    def merge(target, source)
+      elements = get_elements_to_merge(source)
+      elements.each{ |e| merge_element(e, target) }
+    end
+
+    def get_elements_to_merge(source)
+      source.doc.root.children
+    end
+
+    def merge_element(element, target)
+      target.doc.root.add_child element
+    end
+
+    def build_command_specific_xml_from(options)
+      xml_builder { |xml| add_command_specifics(xml, options) }
+    end
+
+    def add_channels(xml, channels)
+      xml.ChannelList do
+        channels.each { |channel| add_channel(channel, xml) }
       end
     end
 
-    def account_tags
-      %w{
-        user_name
-        password
-      }
+    def add_channel(channel, xml)
+      xml.Channel do
+        xml.ChannelId channel
+      end
+    end
+
+    def broadbean_time(our_time)
+      our_time.utc.iso8601
     end
   end
 end

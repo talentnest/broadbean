@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPI>
+  <Method>Export</Method>
+  <APIKey/>
+  <Account>
+    <UserName/>
+    <Password/>
+  </Account>
+  <Advert>
+    <JobTitle/>
+    <JobReference/>
+    <JobType/>
+    <Location_Id/>
+    <Industry/>
+    <SalaryFrom/>
+    <SalaryTo/>
+    <SalaryCurrency/>
+    <SalaryPer/>
+    <Skills/>
+    <JobDescription/>
+    <CustomField name="job_id">1234</CustomField>
+  </Advert>
+</AdCourierAPI>
