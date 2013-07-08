@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPIResponse>
+  <TimeNow>2009-01-23T16:44:00Z</TimeNow>
+  <ResponseId>slipstream-01-23-1232729040-12345</ResponseId>
+  <ListChannelsResponse>
+    <ChannelList>
+      <Channel>
+        <ChannelId>cvlibrary</ChannelId>
+        <ChannelName>CV Library</ChannelName>
+        <BoardId>021</BoardId>
+      </Channel>
+      <Channel>
+        <ChannelId>monsterxml</ChannelId>
+        <ChannelName>Monster XML</ChannelName>
+        <BoardId>479</BoardId>
+        <ChannelSummary>Any text set to appear to the user on broadcast-step-1</ChannelSummary> <!-- only appears if the account has something to display -->
+        <FreeToPost>true</FreeToPost> <!-- only appears here if Broadbean marks the job board as free -->
+        <CostPerPost>$20.00</CostPerPost> <!-- only appears if the account has a value set for this board -->
+        <QuotaInformation>3 slots remaining</QuotaInformation> <!-- only appears if there is quota or slots set for this job board -->
+      </Channel>
+      <Channel>
+        <ChannelId>reed</ChannelId>
+        <ChannelName>reed.co.uk</ChannelName>
+        <BoardId>294</BoardId>
+      </Channel>
+    </ChannelList>
+  </ListChannelsResponse>
+</AdCourierAPIResponse>
