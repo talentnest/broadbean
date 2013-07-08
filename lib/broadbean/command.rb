@@ -4,6 +4,7 @@ require 'nokogiri'
 module Broadbean
   autoload :ExportCommand,      'broadbean/commands/export_command'
   autoload :AdvertCheckCommand, 'broadbean/commands/advert_check_command'
+  autoload :StatusCheckCommand, 'broadbean/commands/status_check_command'
   autoload :DeleteCommand,      'broadbean/commands/delete_command'
 
   class Command
