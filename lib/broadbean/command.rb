@@ -2,11 +2,12 @@ require 'json'
 require 'nokogiri'
 
 module Broadbean
-  autoload :ExportCommand,       'broadbean/commands/export_command'
-  autoload :AdvertCheckCommand,  'broadbean/commands/advert_check_command'
-  autoload :StatusCheckCommand,  'broadbean/commands/status_check_command'
-  autoload :DeleteCommand,       'broadbean/commands/delete_command'
-  autoload :ListChannelsCommand, 'broadbean/commands/list_channels_command'
+  autoload :ExportCommand,          'broadbean/commands/export_command'
+  autoload :AdvertCheckCommand,     'broadbean/commands/advert_check_command'
+  autoload :StatusCheckCommand,     'broadbean/commands/status_check_command'
+  autoload :DeleteCommand,          'broadbean/commands/delete_command'
+  autoload :EnumeratedTypesCommand, 'broadbean/commands/enumerated_types_command'
+  autoload :ListChannelsCommand,    'broadbean/commands/list_channels_command'
 
   class Command
     def initialize(command_specific_xml=nil)

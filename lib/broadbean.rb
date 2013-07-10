@@ -15,7 +15,7 @@ module Broadbean
   URL          = URI.parse('https://api.adcourier.com/hybrid/hybrid.cgi')
   CONTENT_TYPE = 'text/xml'
   ENCODING     = 'utf-8'
-  COMMANDS     = [:export, :advert_check, :status_check, :delete, :list_channels]
+  COMMANDS     = [:export, :advert_check, :status_check, :delete, :enumerated_types , :list_channels]
 
   @api_key  = nil
   @username = nil

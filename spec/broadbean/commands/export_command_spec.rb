@@ -21,7 +21,7 @@ describe Broadbean::ExportCommand do
     end
 
     context "when command options are given" do
-      let(:xml_doc) { File.read('spec/support/files/export_command.xml') }
+      let(:xml_doc) { File.read('spec/support/files/export_command/export_command.xml') }
 
       it "should create non-authenticated Export command XML doc out of given parameters" do
         subject = Broadbean::ExportCommand.new(job_id, command_params)
@@ -30,7 +30,7 @@ describe Broadbean::ExportCommand do
     end
 
     context "when only job_id is given" do
-      let(:xml_doc) { File.read('spec/support/files/export_command_blank.xml') }
+      let(:xml_doc) { File.read('spec/support/files/export_command/blank.xml') }
 
       it "should create non-authenticated Export command XML doc with other required elements having a blank value" do
         subject = Broadbean::ExportCommand.new(job_id)
@@ -41,7 +41,7 @@ describe Broadbean::ExportCommand do
 
   describe "#configure" do
     let(:job_id) { 1234 }
-    let(:xml_doc) { File.read('spec/support/files/export_command_configured.xml') }
+    let(:xml_doc) { File.read('spec/support/files/export_command/configured.xml') }
     let(:options) do
       {
         style_sheet:            'test.css',

@@ -22,7 +22,7 @@ describe Broadbean::Response do
       end
 
       context "and Broadbean reports no command failure" do
-        let(:xml_message) { File.read('spec/support/files/export_command_success.xml') }
+        let(:xml_message) { File.read('spec/support/files/export_command/success.xml') }
         let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
 
         subject { Broadbean::Response.new('Export', http_response) }
@@ -54,7 +54,7 @@ describe Broadbean::Response do
 
       context "and Broadbean reports no command failure" do
         context "for Export command" do
-          let(:xml_message) { File.read('spec/support/files/export_command_success.xml') }
+          let(:xml_message) { File.read('spec/support/files/export_command/success.xml') }
           let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
           let(:export_response) do
             { store_job_url: 'http://www.adcourier.com/' }
@@ -65,8 +65,27 @@ describe Broadbean::Response do
           it { subject.payload.should == [export_response] }
         end
 
+        context "for EnumeratedTypesCommand" do
+          let(:xml_message) { File.read('spec/support/files/enumerated_types_command/success.xml') }
+          let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+          let(:enumerated_types_response) do
+            {
+              section: 'Currency',
+              option: [
+                { name: '£',   value: 'GBP' },
+                { name: '€',   value: 'EUR' },
+                { name: 'USD', value: 'USD' }
+              ]
+            }
+          end
+
+          subject { Broadbean::Response.new('EnumeratedTypes', http_response) }
+
+          it { subject.payload.should == [enumerated_types_response] }
+        end
+
         context "for ListChannels command" do
-          let(:xml_message) { File.read('spec/support/files/list_channels_command_success.xml') }
+          let(:xml_message) { File.read('spec/support/files/list_channels_command/success.xml') }
           let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
           let(:list_channels_response) do
             {
@@ -102,7 +121,7 @@ describe Broadbean::Response do
         end
 
         context "for Delete command" do
-          let(:xml_message) { File.read('spec/support/files/delete_command_success.xml') }
+          let(:xml_message) { File.read('spec/support/files/delete_command/success.xml') }
           let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
           let(:advert1) do
             {
@@ -194,66 +213,66 @@ describe Broadbean::Response do
         end
 
         context "for StatusCheck command" do
-          let(:xml_message) { File.read('spec/support/files/status_check_command_success.xml') }
+          let(:xml_message) { File.read('spec/support/files/status_check_command/success.xml') }
           let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
           let(:response) do
-  {
-    advert: {
-      id:            '14710',
-      create_time:   '2009-01-23T16:45:11Z',
-      consultant:    'user',
-      team:          'team',
-      office:        'office',
-      user_name:     'John.Doe@hybridtest.com',
-      job_title:     'Disbursements Manager',
-      job_reference: 'job_ref'
-    },
-    channel_list: {
-      channel: [
-        {
-          channel_id:   'cvlibrary',
-          channel_name: 'CV Library',
-          cost:         '0.00',
-          currency:     'GBP',
-          channel_status: {
-            return_code: '21',
-            return_code_class: 'Pending',
-            value: 'Being delivered'
-          }
-        },
-        {
-          channel_id:   'monsterxml',
-          channel_name: 'Monster XML',
-          cost:         '175.00',
-          currency:     'GBP',
-          channel_status: {
-            posted_time:       '2009-01-23T16:46:24Z',
-            removal_time:      '2009-01-30T16:46:24Z',
-            return_code:       '0',
-            responses:         '0',
-            slots:             '1',
-            advert_url:        'http://jobsearch.monster.co.uk/getjob.asp?JobID=1234567',
-            return_code_class: 'Success',
-            value:             'Delivered'
-          }
-        },
-        {
-          channel_id:   'reed',
-          channel_name: 'Reed',
-          cost:         '0.00',
-          currency:     'GBP',
-          channel_status: {
-              posted_time:       '2009-01-23T16:46:22Z',
-              return_code:       '17',
-              responses:         '0',
-              slots:             '',
-              return_code_class: 'Failed',
-              value:             'Failed'
-          }
-        }
-      ]
-    }
-  }
+            {
+              advert: {
+                id:            '14710',
+                create_time:   '2009-01-23T16:45:11Z',
+                consultant:    'user',
+                team:          'team',
+                office:        'office',
+                user_name:     'John.Doe@hybridtest.com',
+                job_title:     'Disbursements Manager',
+                job_reference: 'job_ref'
+              },
+              channel_list: {
+                channel: [
+                  {
+                    channel_id:   'cvlibrary',
+                    channel_name: 'CV Library',
+                    cost:         '0.00',
+                    currency:     'GBP',
+                    channel_status: {
+                      return_code: '21',
+                      return_code_class: 'Pending',
+                      value: 'Being delivered'
+                    }
+                  },
+                  {
+                    channel_id:   'monsterxml',
+                    channel_name: 'Monster XML',
+                    cost:         '175.00',
+                    currency:     'GBP',
+                    channel_status: {
+                      posted_time:       '2009-01-23T16:46:24Z',
+                      removal_time:      '2009-01-30T16:46:24Z',
+                      return_code:       '0',
+                      responses:         '0',
+                      slots:             '1',
+                      advert_url:        'http://jobsearch.monster.co.uk/getjob.asp?JobID=1234567',
+                      return_code_class: 'Success',
+                      value:             'Delivered'
+                    }
+                  },
+                  {
+                    channel_id:   'reed',
+                    channel_name: 'Reed',
+                    cost:         '0.00',
+                    currency:     'GBP',
+                    channel_status: {
+                      posted_time:       '2009-01-23T16:46:22Z',
+                      return_code:       '17',
+                      responses:         '0',
+                      slots:             '',
+                      return_code_class: 'Failed',
+                      value:             'Failed'
+                    }
+                  }
+                ]
+              }
+            }
           end
 
           subject { Broadbean::Response.new('StatusCheck', http_response) }
@@ -262,7 +281,7 @@ describe Broadbean::Response do
         end
 
         context "for AdvertCheck command" do
-          let(:xml_message) { File.read('spec/support/files/advert_check_command_success.xml') }
+          let(:xml_message) { File.read('spec/support/files/advert_check_command/success.xml') }
           let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
           let(:advert1) do
             {

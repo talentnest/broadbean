@@ -6,3 +6,6 @@ require 'broadbean/commands/status_check_command'
 require 'broadbean/response'
 
 require 'support/vcr'
+
+# Require shared examples
+Dir["./spec/shared_examples/*.rb"].each {|f| require f}
