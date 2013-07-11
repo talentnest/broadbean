@@ -16,7 +16,8 @@ describe Broadbean::ExportCommand do
         salary_per:      'year',
         skills:          'fast reflexes',
         job_description: 'Test drive cool cars',
-        channels:        [:monster, :workopolis]
+        channels:        [:monster, :workopolis],
+        apply_url:       "https://delta.talentnest.com/job/#{job_id}"
       }
     end
 

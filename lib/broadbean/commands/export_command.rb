@@ -57,6 +57,7 @@ module Broadbean
         xml.SalaryPer      advert[:salary_per]
         xml.Skills         advert[:skills]
         xml.JobDescription advert[:job_description]
+        xml.Extension      advert[:apply_url], name: 'applyonline' if advert[:apply_url]
         xml.CustomField    advert[:job_id], name: 'job_id'
       end
     end

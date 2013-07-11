@@ -18,6 +18,7 @@
     <SalaryPer>year</SalaryPer>
     <Skills>fast reflexes</Skills>
     <JobDescription>Test drive cool cars</JobDescription>
+    <Extension name="applyonline">https://delta.talentnest.com/job/1234</Extension>
     <CustomField name="job_id">1234</CustomField>
   </Advert>
   <ChannelList>
