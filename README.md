@@ -38,13 +38,11 @@ Or install it yourself as:
     )
     result = exp.execute
 
-    # AdvertCheck
-    ac = Broadbean.advert_check(job_reference: 'abc', from: 3.days.ago)
-    result = ac.execute
-
-    # Delete
-    del = Broadbean.delete(job_id: 444, from: 2.days.ago, limit: 1, channels: [:monster, :workopolis] )
-    result = del.execute
+    if exp.failed?
+        # result is a failure message
+    else
+        # result is a hash with result data
+    end
 
 
 ## Contributing
