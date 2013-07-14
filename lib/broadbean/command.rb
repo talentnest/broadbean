@@ -26,6 +26,7 @@ module Broadbean
     def execute
       @request  = Request.new(command_builder.to_xml)
       @response = Response.new(method_name, request.send_out)
+      result
     end
 
     def failed?

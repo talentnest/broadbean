@@ -22,8 +22,8 @@ Or install it yourself as:
 
     # Export
     exp = Broadbean.export(
-        job_id,
         {
+            job_id:          1234,
             job_title:       'Bus operator',
             job_description: 'Driving a bus',
             job_reference:   'transit job',

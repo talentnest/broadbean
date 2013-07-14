@@ -28,7 +28,7 @@ describe Broadbean::Command do
 
   describe "#execute" do
     let(:request) { double('Broadbean::Request', send_out: 'http_response') }
-    let(:response) { double('Broadbean::Response', message: 'Success') }
+    let(:response) { double('Broadbean::Response', payload: 'Success') }
 
     before do
       Broadbean::Request.stub(:new) { request }
@@ -50,6 +50,10 @@ describe Broadbean::Command do
     it "should create a Response" do
       Broadbean::Response.should_receive(:new).with('', request.send_out)
       subject.execute
+    end
+
+    it "should return result of command execution" do
+      subject.execute.should == response.payload
     end
   end
 
