@@ -1,10 +1,8 @@
 module Broadbean
   class ExportCommand < Command
 
-    def initialize(job_id, options={})
-      command_options = options.merge!(job_id: job_id)
-
-      super(build_command_specific_xml_from(command_options))
+    def initialize(options={})
+      super(build_command_specific_xml_from(options))
     end
 
     def configure(options={})

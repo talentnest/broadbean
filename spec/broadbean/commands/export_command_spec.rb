@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Broadbean::ExportCommand do
   describe "#new" do
-    let(:job_id) { 1234 }
     let(:command_params) do
       {
+        job_id:           1234,
         job_title:       'Test driver',
         job_reference:   'Testing',
         job_type:        'Permanent',
@@ -17,7 +17,7 @@ describe Broadbean::ExportCommand do
         skills:          'fast reflexes',
         job_description: 'Test drive cool cars',
         channels:        [:monster, :workopolis],
-        apply_url:       "https://delta.talentnest.com/job/#{job_id}"
+        apply_url:       "https://delta.talentnest.com/job/1234"
       }
     end
 
@@ -25,23 +25,16 @@ describe Broadbean::ExportCommand do
       let(:xml_doc) { File.read('spec/support/files/export_command/export_command.xml') }
 
       it "should create non-authenticated Export command XML doc out of given parameters" do
-        subject = Broadbean::ExportCommand.new(job_id, command_params)
-        subject.instance_variable_get(:@command_builder).to_xml.should == xml_doc
-      end
-    end
-
-    context "when only job_id is given" do
-      let(:xml_doc) { File.read('spec/support/files/export_command/blank.xml') }
-
-      it "should create non-authenticated Export command XML doc with other required elements having a blank value" do
-        subject = Broadbean::ExportCommand.new(job_id)
+        subject = Broadbean::ExportCommand.new(command_params)
         subject.instance_variable_get(:@command_builder).to_xml.should == xml_doc
       end
     end
   end
 
   describe "#configure" do
-    let(:job_id) { 1234 }
+    let(:command_params) do
+      { job_id: 1234 }
+    end
     let(:xml_doc) { File.read('spec/support/files/export_command/configured.xml') }
     let(:options) do
       {
@@ -55,7 +48,7 @@ describe Broadbean::ExportCommand do
       }
     end
 
-    subject { Broadbean::ExportCommand.new(job_id) }
+    subject { Broadbean::ExportCommand.new(command_params) }
 
     it "should add Config XML element with the given params to Export command" do
       subject.configure(options)

@@ -14,7 +14,7 @@ describe Broadbean::Response do
     context "when HTTP transmission was OK" do
       context "but Broadbean reports command failure" do
         let(:xml_message) { File.read('spec/support/files/command_failed.xml') }
-        let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+        let(:http_response) { double('Net::HTTPOK', class: Net::HTTPOK, body: xml_message) }
 
         subject { Broadbean::Response.new('Export', http_response) }
 
@@ -23,7 +23,7 @@ describe Broadbean::Response do
 
       context "and Broadbean reports no command failure" do
         let(:xml_message) { File.read('spec/support/files/export_command/success.xml') }
-        let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+        let(:http_response) { double('Net::HTTPOK', class: Net::HTTPOK, body: xml_message) }
 
         subject { Broadbean::Response.new('Export', http_response) }
 
@@ -45,7 +45,7 @@ describe Broadbean::Response do
     context "when HTTP transmission was OK" do
       context "but Broadbean reports command failure" do
         let(:xml_message) { File.read('spec/support/files/command_failed.xml') }
-        let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+        let(:http_response) { double('Net::HTTPOK', class: Net::HTTPOK, body: xml_message) }
 
         subject { Broadbean::Response.new('Export', http_response) }
 
@@ -55,7 +55,7 @@ describe Broadbean::Response do
       context "and Broadbean reports no command failure" do
         context "for Export command" do
           let(:xml_message) { File.read('spec/support/files/export_command/success.xml') }
-          let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+          let(:http_response) { double('Net::HTTPOK', class: Net::HTTPOK, body: xml_message) }
           let(:export_response) do
             { store_job_url: 'http://www.adcourier.com/' }
           end
@@ -67,7 +67,7 @@ describe Broadbean::Response do
 
         context "for EnumeratedTypesCommand" do
           let(:xml_message) { File.read('spec/support/files/enumerated_types_command/success.xml') }
-          let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+          let(:http_response) { double('Net::HTTPOK', class: Net::HTTPOK, body: xml_message) }
           let(:enumerated_types_response) do
             {
               section: 'Currency',
@@ -86,7 +86,7 @@ describe Broadbean::Response do
 
         context "for ListChannels command" do
           let(:xml_message) { File.read('spec/support/files/list_channels_command/success.xml') }
-          let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+          let(:http_response) { double('Net::HTTPOK', class: Net::HTTPOK, body: xml_message) }
           let(:list_channels_response) do
             {
               channel_list: {
@@ -122,7 +122,7 @@ describe Broadbean::Response do
 
         context "for Delete command" do
           let(:xml_message) { File.read('spec/support/files/delete_command/success.xml') }
-          let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+          let(:http_response) { double('Net::HTTPOK', class: Net::HTTPOK, body: xml_message) }
           let(:advert1) do
             {
               advert: {
@@ -214,7 +214,7 @@ describe Broadbean::Response do
 
         context "for StatusCheck command" do
           let(:xml_message) { File.read('spec/support/files/status_check_command/success.xml') }
-          let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+          let(:http_response) { double('Net::HTTPOK', class: Net::HTTPOK, body: xml_message) }
           let(:response) do
             {
               advert: {
@@ -282,7 +282,7 @@ describe Broadbean::Response do
 
         context "for AdvertCheck command" do
           let(:xml_message) { File.read('spec/support/files/advert_check_command/success.xml') }
-          let(:http_response) { double('Net::HTTPSuccess', class: Net::HTTPSuccess, body: xml_message) }
+          let(:http_response) { double('Net::HTTPOK', class: Net::HTTPOK, body: xml_message) }
           let(:advert1) do
             {
               advert: {

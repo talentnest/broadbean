@@ -11,7 +11,11 @@ module Broadbean
       @http_response = http_response
       @failure_message = nil
 
-      extract_payload_for(method_name) unless http_error
+      if http_response_ok?
+        extract_payload_for(method_name)
+      else
+        create_failure_message
+      end
     end
 
     def failure?
@@ -27,8 +31,8 @@ module Broadbean
 
     attr_reader :http_response, :failure_message
 
-    def http_error
-      create_failure_message unless http_response.class == Net::HTTPSuccess
+    def http_response_ok?
+      http_response.class == Net::HTTPOK
     end
 
     def create_failure_message
