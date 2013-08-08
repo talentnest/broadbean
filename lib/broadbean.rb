@@ -2,6 +2,7 @@ require 'broadbean/version'
 require 'uri'
 require 'broadbean/request'
 require 'broadbean/response'
+require 'broadbean/payload'
 require 'broadbean/command'
 require 'active_support/core_ext/string'
 
@@ -12,10 +13,11 @@ module Broadbean
     i.acronym 'HTTP'
   end
 
-  URL          = URI.parse('https://api.adcourier.com/hybrid/hybrid.cgi')
-  CONTENT_TYPE = 'text/xml'
-  ENCODING     = 'utf-8'
-  COMMANDS     = [:export, :advert_check, :status_check, :delete, :enumerated_types , :list_channels]
+  URL                  = URI.parse('https://api.adcourier.com/hybrid/hybrid.cgi')
+  CONTENT_TYPE         = 'text/xml'
+  ENCODING             = 'utf-8'
+  RESPONSE_TIME_FORMAT = '%Y-%m-%dT%H:%M:%S%z'
+  COMMANDS             = [:export, :advert_check, :status_check, :delete, :enumerated_types , :list_channels]
 
   @api_key  = nil
   @username = nil

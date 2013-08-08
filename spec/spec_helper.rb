@@ -1,11 +1,8 @@
 require 'broadbean'
-require 'broadbean/commands/export_command'
-require 'broadbean/commands/delete_command'
-require 'broadbean/commands/advert_check_command'
-require 'broadbean/commands/status_check_command'
 require 'broadbean/response'
+require 'broadbean/payload'
+Dir["./lib/broadbean/commands/*.rb"].each {|f| require f} # Require all commands
 
 require 'support/vcr'
 
-# Require shared examples
-Dir["./spec/shared_examples/*.rb"].each {|f| require f}
+Dir["./spec/shared_examples/*.rb"].each {|f| require f} # Require shared examples

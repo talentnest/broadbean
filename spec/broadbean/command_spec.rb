@@ -2,20 +2,20 @@ require 'spec_helper'
 
 describe Broadbean::Command do
 
-  describe "#new" do
+  describe '#new' do
     let(:xml_doc) { File.read('spec/support/files/command.xml') }
 
-    it "should create a Command XML doc" do
+    it 'should create a Command XML doc' do
       subject.instance_variable_get(:@command_builder).to_xml.should == xml_doc
     end
   end
 
-  describe "#authenticate" do
-    let(:api_key)  { "654321" }
-    let(:username) { "JDoe" }
-    let(:password) { "pass123" }
+  describe '#authenticate' do
+    let(:api_key)  { '654321' }
+    let(:username) { 'JDoe' }
+    let(:password) { 'pass123' }
 
-    it "should set Broadbean credentials for the command" do
+    it 'should set Broadbean credentials for the command' do
       subject.authenticate(api_key, username, password)
 
       xml = subject.instance_variable_get(:@command_builder).doc
@@ -26,7 +26,7 @@ describe Broadbean::Command do
     end
   end
 
-  describe "#execute" do
+  describe '#execute' do
     let(:request) { double('Broadbean::Request', send_out: 'http_response') }
     let(:response) { double('Broadbean::Response', payload: 'Success') }
 
@@ -35,39 +35,39 @@ describe Broadbean::Command do
       Broadbean::Response.stub(:new) { response }
     end
 
-    it "should create a new Request" do
+    it 'should create a new Request' do
       command_builder = subject.instance_variable_get(:@command_builder)
 
       Broadbean::Request.should_receive(:new).with(command_builder.to_xml)
       subject.execute
     end
 
-    it "should send out the Request" do
+    it 'should send out the Request' do
       request.should_receive(:send_out)
       subject.execute
     end
 
-    it "should create a Response" do
+    it 'should create a Response' do
       Broadbean::Response.should_receive(:new).with('', request.send_out)
       subject.execute
     end
 
-    it "should return result of command execution" do
+    it 'should return result of command execution' do
       subject.execute.should == response.payload
     end
   end
 
-  describe "#failed?" do
-    context "command not executed" do
+  describe '#failed?' do
+    context 'command not executed' do
       before { subject.stub(:executed?) { false } }
 
       it { subject.failed?.should be_false }
     end
 
-    context "command executed" do
-      before { subject.stub(:executed?) { true } }
+    context 'command executed' do
+      before { subject.stub(:executed?, :test) { true } }
 
-      context "and not successful" do
+      context 'and not successful' do
         let(:response) { double('Broadbean::Response', failure?: true) }
 
         before { subject.instance_variable_set(:@response, response) }
@@ -75,7 +75,7 @@ describe Broadbean::Command do
         it { subject.failed?.should be_true }
       end
 
-      context "and successful" do
+      context 'and successful' do
         let(:response) { double('Broadbean::Response', failure?: false) }
 
         before { subject.instance_variable_set(:@response, response) }
@@ -85,14 +85,14 @@ describe Broadbean::Command do
     end
   end
 
-  describe "#result" do
-    context "command not executed" do
+  describe '#result' do
+    context 'command not executed' do
       before { subject.stub(:executed?) { false } }
 
       it { subject.result.should be_nil}
     end
 
-    context "command executed" do
+    context 'command executed' do
       let(:response) { double('Broadbean::Response', payload: 'Success') }
 
       before do
