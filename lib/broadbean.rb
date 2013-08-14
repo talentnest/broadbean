@@ -30,7 +30,7 @@ module Broadbean
 
     # create Broadbean.export(), Broadbean.advert_check(), etc.
     COMMANDS.each do |name|
-      define_method(name) { |params| new_authenticated_command(command_class(name), params) }
+      define_method(name) { |params=nil| new_authenticated_command(command_class(name), params) }
     end
   end
 
@@ -39,6 +39,8 @@ private
   class << self
     attr_reader :api_key, :username, :password
 
+    COMMANDS_WITH_PLURAL_NAME = [:enumerated_types, :list_channels]
+
     def new_authenticated_command(class_name, params)
       c = Broadbean.const_get(class_name).new(params)
       c.authenticate(api_key, username, password)
@@ -46,7 +48,15 @@ private
     end
 
     def command_class(name)
-      [name.to_s.classify, 'Command'].join
+      "#{command_prefix(name)}Command"
+    end
+
+    def command_prefix(name)
+      COMMANDS_WITH_PLURAL_NAME.include?(name) ? prefix(name).pluralize : prefix(name)
+    end
+
+    def prefix(name)
+      name.to_s.classify
     end
   end
 end

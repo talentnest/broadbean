@@ -90,7 +90,7 @@ module Broadbean
     end
 
     def build_command_specific_xml_from(options)
-      xml_builder { |xml| add_command_specifics(xml, options) }
+      xml_builder { |xml| add_command_specifics(xml, options) } if options
     end
 
     def add_channels(xml, channels)

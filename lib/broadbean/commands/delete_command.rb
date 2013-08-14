@@ -1,7 +1,7 @@
 module Broadbean
   class DeleteCommand < Command
 
-    def initialize(options={})
+    def initialize(options=nil)
       super(build_command_specific_xml_from(options))
     end
 

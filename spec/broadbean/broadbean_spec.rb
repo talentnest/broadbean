@@ -52,5 +52,38 @@ describe Broadbean do
         subject.delete(params)
       end
     end
+
+    describe ".status_check" do
+      let(:status_check_command) { double('Broadbean::StatusCheckCommand', authenticate: nil) }
+
+      before { Broadbean::StatusCheckCommand.stub(:new).and_return(status_check_command) }
+
+      it "should create StatusCheckCommand with given params" do
+        Broadbean::StatusCheckCommand.should_receive(:new).with(params)
+        subject.status_check(params)
+      end
+    end
+
+    describe ".enumerated_types" do
+      let(:enumerated_types_command) { double('Broadbean::EnumeratedTypesCommand', authenticate: nil) }
+
+      before { Broadbean::EnumeratedTypesCommand.stub(:new).and_return(enumerated_types_command) }
+
+      it "should create EnumeratedTypesCommand with given params" do
+        Broadbean::EnumeratedTypesCommand.should_receive(:new).with(params)
+        subject.enumerated_types(params)
+      end
+    end
+
+    describe ".list_channels" do
+      let(:list_channels_command) { double('Broadbean::ListChannelsCommand', authenticate: nil) }
+
+      before { Broadbean::ListChannelsCommand.stub(:new).and_return(list_channels_command) }
+
+      it "should create ListChannelsCommand" do
+        Broadbean::ListChannelsCommand.should_receive(:new)
+        subject.list_channels
+      end
+    end
   end
 end
