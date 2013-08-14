@@ -1,6 +1,8 @@
 # Broadbean
 Communicate to Broadbean's AdCourier service in order to post and manage job adverts.
 
+Check [Wiki](https://github.com/rvracaric/broadbean/wiki/Broadbean-gem) for more info.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -41,7 +43,7 @@ Or install it yourself as:
     if exp.failed?
         # result is a failure message
     else
-        # result is a hash with result data
+        # result is an array with data
     end
 
 
