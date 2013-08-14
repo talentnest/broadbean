@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Broadbean::ExportCommand do
-  describe "#new" do
+  it_should_behave_like "a Broadbean Command" do
+    let(:xml_doc) { File.read('spec/support/files/export_command/export_command.xml') }
     let(:command_params) do
       {
         job_id:           1234,
@@ -19,15 +20,6 @@ describe Broadbean::ExportCommand do
         channels:        [:monster, :workopolis],
         apply_url:       "https://delta.talentnest.com/job/1234"
       }
-    end
-
-    context "when command options are given" do
-      let(:xml_doc) { File.read('spec/support/files/export_command/export_command.xml') }
-
-      it "should create non-authenticated Export command XML doc out of given parameters" do
-        subject = Broadbean::ExportCommand.new(command_params)
-        subject.instance_variable_get(:@command_builder).to_xml.should == xml_doc
-      end
     end
   end
 
