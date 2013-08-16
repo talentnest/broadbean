@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPI>
+  <Method>AdvertCheck</Method>
+  <APIKey/>
+  <Account>
+    <UserName/>
+    <Password/>
+  </Account>
+  <Options>
+    <Filter>
+      <AdvertId>123</AdvertId>
+      <JobReference>Testing</JobReference>
+      <Times>
+        <TimeFrom>2012-06-30T04:00:00Z</TimeFrom>
+        <TimeTo>2012-07-30T04:00:00Z</TimeTo>
+      </Times>
+      <CustomField name="job_id">321</CustomField>
+      <Limit>1</Limit>
+    </Filter>
+  </Options>
+</AdCourierAPI>

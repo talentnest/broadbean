@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPI>
+  <Method>Export</Method>
+  <APIKey/>
+  <Account>
+    <UserName/>
+    <Password/>
+  </Account>
+  <Config>
+    <Options>
+      <StyleSheet>test.css</StyleSheet>
+      <DisplayMenu>false</DisplayMenu>
+      <ForceStep1>true</ForceStep1>
+      <NotifyOnDelivery>page_url_here</NotifyOnDelivery>
+      <RedirectOnCompletion>page_url_here</RedirectOnCompletion>
+      <ReturnStoreURL>true</ReturnStoreURL>
+      <Automate>false</Automate>
+    </Options>
+  </Config>
+  <Advert>
+    <JobTitle/>
+    <JobReference/>
+    <JobType/>
+    <Location_Id/>
+    <Industry/>
+    <SalaryFrom/>
+    <SalaryTo/>
+    <SalaryCurrency/>
+    <SalaryPer/>
+    <Skills/>
+    <JobDescription/>
+    <CustomField name="job_id">1234</CustomField>
+  </Advert>
+</AdCourierAPI>

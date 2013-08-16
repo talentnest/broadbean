@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AdCourierAPIResponse>
+  <TimeNow>2009-01-24T16:45:00Z</TimeNow>
+  <ResponseId>slipstream-01-24-1232815500-12345</ResponseId>
+  <AdvertCheckResponse> <!-- one or more may be returned -->
+    <Advert>
+      <Id>14710</Id>
+      <CreateTime>2009-01-23T16:45:11Z</CreateTime>
+      <Consultant>user</Consultant>
+      <Team>team</Team>
+      <Office>office</Office>
+      <UserName>John.Doe@hybridtest.com</UserName>
+      <JobTitle>Disbursements Manager</JobTitle>
+      <JobReference>job_ref</JobReference>
+      <JobType>Permanent</JobType>
+      <Location_Id>38640</Location_Id>
+      <Industry>IT</Industry>
+      <SalaryFrom>400.00</SalaryFrom>
+      <SalaryTo>500.00</SalaryTo>
+      <SalaryCurrency>GBP</SalaryCurrency>
+      <SalaryPer>annum</SalaryPer>
+      <SalaryBenefits>Benefits</SalaryBenefits>
+      <Skills>some skills</Skills>
+      <JobDescription>Nice description of an exported job</JobDescription>
+  </Advert>
+    <Contact>
+      <ContactName>Consultant Name</ContactName>
+      <ContactEmail>consultant@company.com</ContactEmail>
+      <ContactTelephone>01234 567890</ContactTelephone>
+    </Contact>
+    <ChannelList>
+      <Channel> <!-- one or more may be returned -->
+        <ChannelId>cvlibrary</ChannelId>
+        <ChannelName>CV Library</ChannelName>
+        <Cost>0.00</Cost>
+        <Currency>GBP</Currency>
+        <ChannelStatus ReturnCode="21" ReturnCodeClass="Pending">Being delivered</ChannelStatus>
+      </Channel>
+      <Channel>
+        <ChannelId>monsterxml</ChannelId>
+        <ChannelName>Monster XML</ChannelName>
+        <Cost>175.00</Cost>
+        <Currency>GBP</Currency>
+        <ChannelStatus PostedTime="2009-01-23T16:46:24Z" RemovalTime="2009-01-30T16:46:24Z" ReturnCode="0" Responses="0" Slots="1" AdvertURL="http://jobsearch.monster.co.uk/getjob.asp?JobID=1234567" ReturnCodeClass="Success">Delivered</ChannelStatus>
+      </Channel>
+      <Channel>
+        <ChannelId>reed</ChannelId>
+        <ChannelName>Reed</ChannelName>
+        <Cost>0.00</Cost>
+        <Currency>GBP</Currency>
+        <ChannelStatus PostedTime="2009-01-23T16:46:22Z" ReturnCode="17" Responses="0" Slots="" ReturnCodeClass="Failed">Failed</ChannelStatus>
+      </Channel>
+    </ChannelList>
+  </AdvertCheckResponse>
+  <AdvertCheckResponse>
+    <Advert>
+      <Id>14711</Id>
+      <CreateTime>2009-02-23T16:45:11Z</CreateTime>
+      <Consultant>user</Consultant>
+      <Team>team</Team>
+      <Office>office</Office>
+      <UserName>John.Doe@hybridtest.com</UserName>
+      <JobTitle>Disbursements Chief</JobTitle>
+      <JobReference>job_ref</JobReference>
+      <JobType>Permanent</JobType>
+      <Location_Id>38640</Location_Id>
+      <Industry>IT</Industry>
+      <SalaryFrom>400.00</SalaryFrom>
+      <SalaryTo>500.00</SalaryTo>
+      <SalaryCurrency>GBP</SalaryCurrency>
+      <SalaryPer>annum</SalaryPer>
+      <SalaryBenefits>Benefits</SalaryBenefits>
+      <Skills>some skills</Skills>
+      <JobDescription>Nice description of an exported job</JobDescription>
+    </Advert>
+    <Contact>
+      <ContactName>Consultant Name</ContactName>
+      <ContactEmail>consultant@company.com</ContactEmail>
+      <ContactTelephone>01234 567890</ContactTelephone>
+    </Contact>
+    <ChannelList>
+      <Channel> <!-- one or more may be returned -->
+        <ChannelId>cvlibrary</ChannelId>
+        <ChannelName>CV Library</ChannelName>
+        <Cost>0.00</Cost>
+        <Currency>GBP</Currency>
+        <ChannelStatus ReturnCode="21" ReturnCodeClass="Pending">Being delivered</ChannelStatus>
+      </Channel>
+      <Channel>
+        <ChannelId>monsterxml</ChannelId>
+        <ChannelName>Monster XML</ChannelName>
+        <Cost>175.00</Cost>
+        <Currency>GBP</Currency>
+        <ChannelStatus PostedTime="2009-01-23T16:46:24Z" RemovalTime="2009-01-30T16:46:24Z" ReturnCode="0" Responses="0" Slots="1" AdvertURL="http://jobsearch.monster.co.uk/getjob.asp?JobID=1234567" ReturnCodeClass="Success">Delivered</ChannelStatus>
+      </Channel>
+      <Channel>
+        <ChannelId>reed</ChannelId>
+        <ChannelName>Reed</ChannelName>
+        <Cost>0.00</Cost>
+        <Currency>GBP</Currency>
+        <ChannelStatus PostedTime="2009-01-23T16:46:22Z" ReturnCode="17" Responses="0" Slots="" ReturnCodeClass="Failed">Failed</ChannelStatus>
+      </Channel>
+    </ChannelList>
+  </AdvertCheckResponse>
+</AdCourierAPIResponse>

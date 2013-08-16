@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPI>
+  <Method>EnumeratedTypes</Method>
+  <APIKey/>
+  <Account>
+    <UserName/>
+    <Password/>
+  </Account>
+  <Options>
+    <Filter>
+      <Section>Location</Section>
+      <SubSection>
+        <Retrieve>Updated</Retrieve>
+        <Times>
+          <TimeFrom>2012-07-06T04:00:00Z</TimeFrom>
+        </Times>
+      </SubSection>
+    </Filter>
+  </Options>
+</AdCourierAPI>

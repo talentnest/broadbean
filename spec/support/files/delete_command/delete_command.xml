@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPI>
+  <Method>Delete</Method>
+  <APIKey/>
+  <Account>
+    <UserName/>
+    <Password/>
+  </Account>
+  <Options>
+    <Filter>
+      <JobReference>Testing</JobReference>
+      <Times>
+        <TimeFrom>2012-06-30T04:00:00Z</TimeFrom>
+        <TimeTo>2012-07-30T04:00:00Z</TimeTo>
+      </Times>
+      <Id>123</Id>
+      <CustomField name="job_id">321</CustomField>
+      <Limit>1</Limit>
+    </Filter>
+    <ChannelList>
+      <Channel>
+        <ChannelId>monster</ChannelId>
+      </Channel>
+      <Channel>
+        <ChannelId>workopolis</ChannelId>
+      </Channel>
+    </ChannelList>
+  </Options>
+</AdCourierAPI>
