@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AdCourierAPIResponse>
+  <TimeNow>2009-01-23T06:15:00Z</TimeNow>
+  <ResponseId>slipstream-01-23-1232691300-12345</ResponseId>
+  <EnumeratedTypesResponse>
+    <Section>Currency</Section>
+    <Option> <!-- one or more may be returned -->
+      <Name>£</Name>
+      <Value>GBP</Value>
+    </Option>
+    <Option>
+      <Name>€</Name>
+      <Value>EUR</Value>
+    </Option>
+    <Option>
+      <Name>USD</Name>
+      <Value>USD</Value>
+    </Option>
+  </EnumeratedTypesResponse>
+</AdCourierAPIResponse>

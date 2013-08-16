@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdCourierAPI>
+  <Method>Export</Method>
+  <APIKey/>
+  <Account>
+    <UserName/>
+    <Password/>
+  </Account>
+  <Advert>
+    <JobTitle>Test driver</JobTitle>
+    <JobReference>Testing</JobReference>
+    <JobType>Permanent</JobType>
+    <Location_Id>23</Location_Id>
+    <Industry>Car</Industry>
+    <SalaryFrom>23000</SalaryFrom>
+    <SalaryTo>32000</SalaryTo>
+    <SalaryCurrency>CAD</SalaryCurrency>
+    <SalaryPer>year</SalaryPer>
+    <Skills>fast reflexes</Skills>
+    <JobDescription>Test drive cool cars</JobDescription>
+    <Extension name="applyonline">https://delta.talentnest.com/job/1234</Extension>
+    <CustomField name="job_id">1234</CustomField>
+  </Advert>
+  <ChannelList>
+    <Channel>
+      <ChannelId>monster</ChannelId>
+    </Channel>
+    <Channel>
+      <ChannelId>workopolis</ChannelId>
+    </Channel>
+  </ChannelList>
+</AdCourierAPI>
