@@ -19,25 +19,23 @@ module Broadbean
   RESPONSE_TIME_FORMAT = '%Y-%m-%dT%H:%M:%S%z'
   COMMANDS             = [:export, :advert_check, :status_check, :delete, :enumerated_types, :list_channels]
 
-  @api_key = @username = @password = nil
-
   class << self
     def init(api_key, username, password)
-      @api_key  = api_key
-      @username = username
-      @password = password
+      Thread.current[:broadbean_api_key]  = api_key
+      Thread.current[:broadbean_username] = username
+      Thread.current[:broadbean_password] = password
+    end
+
+    %w(api_key username password).each do |var|
+      define_method(var) { Thread.current[:"broadbean_#{var}"] }
     end
 
     # create Broadbean.export(), Broadbean.advert_check(), etc.
     COMMANDS.each do |name|
       define_method(name) { |params=nil| new_authenticated_command(command_class(name), params) }
     end
-  end
 
 private
-
-  class << self
-    attr_reader :api_key, :username, :password
 
     COMMANDS_WITH_PLURAL_NAME = [:enumerated_types, :list_channels]
 
