@@ -11,9 +11,9 @@ describe Broadbean do
     it "should set up Broadbean credentials" do
       subject.init(api_key, username, password)
 
-      subject.instance_variable_get(:@api_key).should  == api_key
-      subject.instance_variable_get(:@username).should == username
-      subject.instance_variable_get(:@password).should == password
+      subject.api_key.should == api_key
+      subject.username.should == username
+      subject.password.should == password
     end
   end
 
