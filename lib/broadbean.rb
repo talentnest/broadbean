@@ -25,6 +25,7 @@ module Broadbean
   ADVERT_PROCESSING_STATUS = 'Processing'
   ADVERT_REMOVED_STATUS    = 'Deleted'
   ADVERT_UNKNOWN_STATUS    = 'Unknown'
+  ADVERT_FUTURE_STATUS     = 'Future'
 
   class << self
     def init(api_key, username, password)
