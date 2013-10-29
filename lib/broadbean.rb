@@ -26,6 +26,7 @@ module Broadbean
   ADVERT_REMOVED_STATUS    = 'Deleted'
   ADVERT_UNKNOWN_STATUS    = 'Unknown'
   ADVERT_FUTURE_STATUS     = 'Future'
+  ADVERT_FAILED_STATUS     = 'Failed'
 
   class << self
     def init(api_key, username, password)
