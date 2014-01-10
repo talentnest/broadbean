@@ -27,6 +27,7 @@ module Broadbean
   ADVERT_UNKNOWN_STATUS    = 'Unknown'
   ADVERT_FUTURE_STATUS     = 'Future'
   ADVERT_FAILED_STATUS     = 'Failed'
+  ADVERT_SENT_STATUS       = 'Sent'
 
   class << self
     def init(api_key, username, password)
