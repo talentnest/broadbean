@@ -21,14 +21,6 @@ module Broadbean
   ADVERT_NOT_FOUND_MESSAGE = 'Not found'
   DELIVERY_NOTICE_METHOD   = 'StatusCheck'
 
-  ADVERT_DELIVERED_STATUS  = 'Delivered'
-  ADVERT_PROCESSING_STATUS = 'Processing'
-  ADVERT_REMOVED_STATUS    = 'Deleted'
-  ADVERT_UNKNOWN_STATUS    = 'Unknown'
-  ADVERT_FUTURE_STATUS     = 'Future'
-  ADVERT_FAILED_STATUS     = 'Failed'
-  ADVERT_SENT_STATUS       = 'Sent'
-
   class << self
     def init(api_key, username, password)
       Thread.current[:broadbean_api_key]  = api_key
